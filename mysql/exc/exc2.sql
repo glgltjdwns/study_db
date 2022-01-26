@@ -1,42 +1,66 @@
 use world;
 
+CREATE TABLE IF NOT EXISTS `book3` (
+  `no` INT UNSIGNED NOT NULL AUTO_INCREMENT,
+  `name` VARCHAR(45) NULL,
+  `publisher_cd` INT NULL,
+  PRIMARY KEY (`no`))
+ENGINE = InnoDB;
 
+CREATE TABLE IF NOT EXISTS `publisher` (
+  `no` INT UNSIGNED NOT NULL AUTO_INCREMENT,
+  `name` VARCHAR(45) NULL,
+  PRIMARY KEY (`no`))
+ENGINE = InnoDB;
 
+insert into book3(
+name
+,publisher_cd
 
-create table cafe  (
-	seq int,
-	cafename varchar(100),
-    number_of_tables int,
-    number_of_chairs int,
-    address varchar(100),
-    area varchar(100),
-    RepresentativeName varchar (100)
-    
+)values(
+'4차산업혁명의미래'
+,1
+
+); 
+
+insert into publisher(
+name
+)value(
+'아이콕스'
 );
 
+select * from book3;
+select * from publisher;
 
-CREATE TABLE IF NOT EXISTS `caft` (
-  `sqe` INT NOT NULL,
-  `cafename` VARCHAR(100) NULL,
-  `number_of_tables` INT NULL,
-  `number_of_chairs` INT NULL,
-  `address` VARCHAR(100) NULL,
-  `area` VARCHAR(100) NULL,
-  `RepresentativeName` VARCHAR(100) NULL,
-  PRIMARY KEY (`sqe`))
-ENGINE = InnoDB
-DEFAULT CHARACTER SET = utf8mb4
-COLLATE = utf8mb4_unicode_ci
+select
+a.no
+,a.name
+,a.publisher_cd
+,b.name
+from book3 as a
+ left join publisher as b on b.no = a.publisher_cd;
+-- inner join publisher as b on b.no = a.publisher_cd;
+-- 테이블 조인을 해야 되면 테이블 이름에 알리아스를 넣는다. (alias)
 
+select
+	a.no
+    ,a.name
+    ,a.publisher_cd
+    ,(select name from publisher where no = a.publisher_cd)
+from book3  as a;
 
+select
+	a.no
+    ,a.name
+    ,a.publisher_cd
+    ,(select name from publisher where no = a.publisher_cd) as publisher_name
+from book3 as a;
 
-
-
-
-
-
-
-
-
+select
+	a.no
+    ,a.name
+    ,a.publisher_cd
+    ,getPublisherName -- 함수, function 
+from book3 as a;
 
 
