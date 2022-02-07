@@ -1,3 +1,4 @@
+use world;
 CREATE TABLE IF NOT EXISTS `world`.`codeGroup` (
   `seq` VARCHAR(50) NOT NULL,
   `name` VARCHAR(45) NULL,

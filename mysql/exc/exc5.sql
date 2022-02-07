@@ -83,7 +83,7 @@ a.no
 from book6 a
 left join book6_writer b on b.book6_seq = a.no
 left join writer c on c.no =b.writer_seq
-;
+
 
 
 
