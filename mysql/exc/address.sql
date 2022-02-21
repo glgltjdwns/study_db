@@ -27,3 +27,10 @@ now(),
 
 select * from infrmemberaddress;
 
+update  infrmemberaddress set
+	ifmaDefaultNy = '1'
+  
+where 1=1
+	and ifmaSeq = 1;
+
+

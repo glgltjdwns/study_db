@@ -24,4 +24,3 @@ now(),
 );
 
 select * from infrmemberemail;
-

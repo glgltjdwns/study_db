@@ -27,3 +27,12 @@ now(),
 );
 
 select * from infrmemberphone;
+
+update infrmemberphone set
+	ifmpDefaultNy = '1'
+   
+where 1=1
+	and ifrpseq = 1;
+    
+  
+    
